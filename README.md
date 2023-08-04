@@ -31,7 +31,7 @@ cp /opt/telegraf_dam2ktado/telegraf_dam2ktado.conf /etc/telegraf/telegraf.d
 
 ```systemctl restart telegraf```
 # Grafana
-You may design a dashbord by yourself with the collected metrics described below, or, you can import and then personalize your dashboard from our **tado_telegraf_influxdb_grafana.json** file.
+You may design a dashbord by yourself with the collected metrics described below, or, you can import and then personalize your dashboard from our **tado_telegraf_influxdb_grafana.json** file (or import the grafana dashboard **19301**).
 # Tado metrics - tags and fields
 The exported metrics collected by telegraf thanks to this plugin are defined below.
 ## Zones: your house rooms
