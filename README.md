@@ -24,10 +24,11 @@ mv telegraf-dam2ktado /opt/telegraf_dam2ktado
 cp /opt/telegraf_dam2ktado/telegraf_dam2ktado.conf /etc/telegraf/telegraf.d
 ```
 *If you choose another installation path (your mileage may vary), change the **command** path accordingly inside your config file.*
-- edit the tado_telegraf_json2_plugin.php file setting your tado environment: **secret, username, password, homeid**
+- edit the tado_telegraf_json2_plugin.php file, set your tado environment variable into the $tadoconf array: **tado.clientSecret, tado.username, tado.password, tado.homeid and eventually the statefile temporary file for the access token**
 
 *You can obtain your environment data from my.tado.com/webapp/env.js after you logged into [my.tado.com](https://my.tado.com)*
 - restart telegraf
+
 ```systemctl restart telegraf```
 # Grafana
 You may design a dashbord by yourself with the collected metrics described below, or, you can import and then personalize your dashboard from our **tado_telegraf_influxdb_grafana.json** file.
