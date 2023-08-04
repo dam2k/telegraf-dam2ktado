@@ -1,4 +1,65 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_INFLUXDB",
+      "label": "InfluxDB",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "influxdb",
+      "pluginName": "InfluxDB"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.3"
+    },
+    {
+      "type": "datasource",
+      "id": "influxdb",
+      "name": "InfluxDB",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -20,7 +81,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 13847,
   "graphTooltip": 2,
-  "id": 16,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -53,7 +114,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -100,7 +161,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -196,7 +258,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "groupBy": [],
@@ -230,7 +292,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "groupBy": [],
@@ -269,7 +331,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "temperature",
       "gridPos": {
@@ -293,7 +355,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "refId": "A"
         }
@@ -303,7 +365,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -316,7 +378,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "light-green",
@@ -370,7 +433,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "groupBy": [],
@@ -408,7 +471,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -437,7 +500,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "grey"
+                "color": "grey",
+                "value": null
               }
             ]
           },
@@ -472,7 +536,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage{zone=\"$zone\"}",
           "groupBy": [],
@@ -510,7 +574,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "gridPos": {
         "h": 2,
@@ -533,7 +597,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "refId": "A"
         }
@@ -543,7 +607,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -556,7 +620,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-orange"
+                "color": "semi-dark-orange",
+                "value": null
               },
               {
                 "color": "semi-dark-green",
@@ -601,7 +666,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
           "groupBy": [],
@@ -639,7 +704,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -683,7 +748,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "super-light-red"
+                "color": "super-light-red",
+                "value": null
               }
             ]
           },
@@ -715,7 +781,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "groupBy": [],
@@ -775,7 +841,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -785,7 +851,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "light-green",
@@ -837,7 +904,7 @@
           "alias": "Min",
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "format": "time_series",
@@ -877,7 +944,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -921,7 +988,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-blue"
+                "color": "light-blue",
+                "value": null
               }
             ]
           },
@@ -953,7 +1021,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
           "groupBy": [],
@@ -1013,7 +1081,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1024,7 +1092,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange"
+                "color": "orange",
+                "value": null
               },
               {
                 "color": "green",
@@ -1067,7 +1136,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
           "format": "time_series",
@@ -1106,7 +1175,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1135,7 +1204,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "grey"
+                "color": "grey",
+                "value": null
               }
             ]
           },
@@ -1170,7 +1240,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage{zone=\"$zone\"}",
           "groupBy": [],
@@ -1207,7 +1277,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1219,7 +1289,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "light-green",
@@ -1270,7 +1341,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "format": "time_series",
@@ -1309,7 +1380,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1333,7 +1404,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "blue",
@@ -1385,7 +1457,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_setting_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "groupBy": [],
@@ -1417,7 +1489,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1428,7 +1500,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange"
+                "color": "orange",
+                "value": null
               },
               {
                 "color": "green",
@@ -1471,7 +1544,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
           "format": "time_series",
@@ -1510,7 +1583,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1521,7 +1594,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "light-green",
@@ -1572,7 +1646,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "format": "time_series",
@@ -1611,7 +1685,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1624,7 +1698,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               },
               {
                 "color": "super-light-yellow",
@@ -1681,7 +1756,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_setting_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
           "groupBy": [],
@@ -1713,7 +1788,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1724,7 +1799,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange"
+                "color": "orange",
+                "value": null
               },
               {
                 "color": "green",
@@ -1767,7 +1843,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
           "format": "time_series",
@@ -1832,7 +1908,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1878,7 +1954,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -1914,7 +1991,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage",
           "groupBy": [
@@ -1981,7 +2058,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1995,7 +2072,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "blue",
@@ -2044,7 +2122,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage",
           "format": "time_series",
@@ -2116,7 +2194,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2161,7 +2239,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2201,7 +2280,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage",
           "groupBy": [
@@ -2268,7 +2347,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2290,7 +2369,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "grey"
+                "color": "grey",
+                "value": null
               },
               {
                 "color": "green",
@@ -2339,7 +2419,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage",
           "format": "time_series",
@@ -2410,7 +2490,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2454,7 +2534,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2494,7 +2575,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{unit=\"celsius\"}",
           "groupBy": [
@@ -2557,7 +2638,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2571,7 +2652,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue"
+                "color": "dark-blue",
+                "value": null
               },
               {
                 "color": "blue",
@@ -2620,7 +2702,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage",
           "format": "time_series",
@@ -2692,7 +2774,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2736,7 +2818,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2776,7 +2859,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_sensor_temperature_value{unit=\"celsius\"}",
           "groupBy": [
@@ -2839,7 +2922,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2852,7 +2935,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange"
+                "color": "orange",
+                "value": null
               },
               {
                 "color": "green",
@@ -2893,7 +2977,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "expr": "tado_activity_heating_power_percentage",
           "format": "time_series",
@@ -2977,7 +3061,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2999,7 +3083,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3160,7 +3245,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [
             {
@@ -3195,7 +3280,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [
             {
@@ -3343,14 +3428,10 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "Pranzo",
-          "value": "Pranzo"
-        },
+        "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          "uid": "${DS_INFLUXDB}"
         },
         "definition": "SHOW TAG VALUES from dAm2KTADO_Zones with key=\"zonename\"",
         "hide": 0,
