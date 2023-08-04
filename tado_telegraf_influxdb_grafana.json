@@ -1,0 +1,3392 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Grafana Dashboard that shows the temperature setting, current temperature, humidity and activity for all rooms. A detailed view is shown based on the selected room.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 13847,
+  "graphTooltip": 2,
+  "id": 16,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 37,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Zone",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": 300000,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "dAm2KTADO_Zones.celsius"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "left"
+              },
+              {
+                "id": "unit",
+                "value": "celsius"
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              },
+              {
+                "id": "displayName",
+                "value": "temperatura"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "dAm2KTADO_Zones.humidity"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "humidity"
+              },
+              {
+                "id": "decimals",
+                "value": 1
+              },
+              {
+                "id": "displayName",
+                "value": "umidità"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "repeat": "zone",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Current Temperature",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Current Temperature",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "title": "Temperatura e umidità: $zone",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "temperature",
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 19
+      },
+      "id": 20,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<span style=\"font-size:32px\">Temperatura</span>",
+        "mode": "html"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "max": 30,
+          "min": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "light-green",
+                "value": 22
+              },
+              {
+                "color": "dark-green",
+                "value": 24
+              },
+              {
+                "color": "#EAB839",
+                "value": 26.7
+              },
+              {
+                "color": "red",
+                "value": 28.2
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 4,
+        "y": 19
+      },
+      "id": 8,
+      "interval": "",
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {},
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "AUTOMATIC": {
+                  "color": "dark-orange",
+                  "index": 1,
+                  "text": "Automatico"
+                },
+                "MANUAL": {
+                  "color": "#cfc8d326",
+                  "index": 0,
+                  "text": "Manuale"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "grey"
+              }
+            ]
+          },
+          "unit": "bool_on_off"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 10,
+        "y": 19
+      },
+      "id": 9,
+      "interval": "",
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^dAm2KTADO_Zones\\.controltype$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage{zone=\"$zone\"}",
+          "groupBy": [],
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Heating Power",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "controltype"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "title": "Gestione riscaldamento",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 15,
+        "y": 19
+      },
+      "id": 21,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<span style=\"font-size:32px\">Umidità</span>",
+        "mode": "html"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-orange"
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 40
+              },
+              {
+                "color": "semi-dark-blue",
+                "value": 65
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 18,
+        "y": 19
+      },
+      "id": 22,
+      "interval": "",
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": false
+        },
+        "showUnfilled": true,
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "\t",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "displayName": "temperatura",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-red"
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 21
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "zone"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "instance": true,
+              "job": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "light-green",
+                "value": 20
+              },
+              {
+                "color": "dark-green",
+                "value": 24
+              },
+              {
+                "color": "orange",
+                "value": 26.7
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 28.2
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 21
+      },
+      "id": 13,
+      "interval": "",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "alias": "Min",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "format": "time_series",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Min:",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "displayName": "umidità",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-blue"
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 15,
+        "y": 21
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
+          "groupBy": [],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "zone"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "instance": true,
+              "job": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "displayName": "Min",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange"
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "blue",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 21
+      },
+      "id": 30,
+      "interval": "",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
+          "format": "time_series",
+          "groupBy": [],
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Min:",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "OFF": {
+                  "color": "super-light-green",
+                  "index": 0,
+                  "text": "Off"
+                },
+                "ON": {
+                  "color": "semi-dark-green",
+                  "index": 1,
+                  "text": "On"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "grey"
+              }
+            ]
+          },
+          "unit": "bool_on_off"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 10,
+        "y": 22
+      },
+      "id": 43,
+      "interval": "",
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^dAm2KTADO_Zones\\.power$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage{zone=\"$zone\"}",
+          "groupBy": [],
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Heating Power",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "power"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "displayName": "Max",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "light-green",
+                "value": 22
+              },
+              {
+                "color": "dark-green",
+                "value": 24
+              },
+              {
+                "color": "orange",
+                "value": 26.7
+              },
+              {
+                "color": "red",
+                "value": 28.2
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 24
+      },
+      "id": 12,
+      "interval": "",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "format": "time_series",
+          "groupBy": [],
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Max:",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "light-blue",
+                  "index": 0,
+                  "text": "Off"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 25,
+          "min": 15.5,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "blue",
+                "value": 17
+              },
+              {
+                "color": "green",
+                "value": 19
+              },
+              {
+                "color": "orange",
+                "value": 21
+              },
+              {
+                "color": "red",
+                "value": 23
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 10,
+        "y": 24
+      },
+      "id": 11,
+      "interval": "",
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^dAm2KTADO_Zones\\.desired_celsius$/",
+          "values": false
+        },
+        "showUnfilled": true,
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_setting_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "groupBy": [],
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Set Temperature",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "desired_celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Temperatura desiderata",
+      "transformations": [],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "displayName": "Max",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange"
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "blue",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 24
+      },
+      "id": 24,
+      "interval": "",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
+          "format": "time_series",
+          "groupBy": [],
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Max:",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "displayName": "Avg",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "light-green",
+                "value": 22
+              },
+              {
+                "color": "dark-green",
+                "value": 24
+              },
+              {
+                "color": "orange",
+                "value": 26.7
+              },
+              {
+                "color": "red",
+                "value": 28.2
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 27
+      },
+      "id": 14,
+      "interval": "",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "format": "time_series",
+          "groupBy": [],
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Avg:",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "transparent"
+              },
+              {
+                "color": "super-light-yellow",
+                "value": 20
+              },
+              {
+                "color": "light-yellow",
+                "value": 40
+              },
+              {
+                "color": "light-orange",
+                "value": 60
+              },
+              {
+                "color": "dark-orange",
+                "value": 80
+              },
+              {
+                "color": "dark-red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 10,
+        "y": 27
+      },
+      "id": 42,
+      "interval": "",
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^dAm2KTADO_Zones\\.heating_power$/",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {},
+        "valueMode": "hidden"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_setting_temperature_value{zone=\"$zone\",unit=\"$temperatureScale\"}",
+          "groupBy": [],
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Set Temperature",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "heating_power"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Spinta riscaldamento",
+      "transformations": [],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "displayName": "Avg",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange"
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "blue",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 27
+      },
+      "id": 25,
+      "interval": "",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_humidity_percentage{zone=\"$zone\"}",
+          "format": "time_series",
+          "groupBy": [],
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Avg:",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "zonename::tag",
+              "operator": "=~",
+              "value": "/^$zone$/"
+            }
+          ]
+        }
+      ],
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 39,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Tutte le zone",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "stepBefore",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "max": 30,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 18,
+        "x": 0,
+        "y": 31
+      },
+      "id": 45,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "desired_celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Temperatura desiderata: Tutte le zone",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns",
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Kinderzimmer": false,
+              "instance": true,
+              "job": true,
+              "unit": false
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "max": 30,
+          "min": 15,
+          "noValue": "Off",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "blue",
+                "value": 18
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "orange",
+                "value": 24
+              },
+              {
+                "color": "red",
+                "value": 26
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 31
+      },
+      "id": 44,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "10.0.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage",
+          "format": "time_series",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "desired_celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Termostato",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns",
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "instance": true,
+              "job": true,
+              "unit": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "Bad": "",
+              "Time": "",
+              "instance": "",
+              "job": "awefe"
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "stepBefore",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 18,
+        "x": 0,
+        "y": 37
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "heating_power"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Spinta riscaldamento: Tutte le zone",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns",
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Kinderzimmer": false,
+              "instance": true,
+              "job": true,
+              "unit": false
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "text": "OFF"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "grey"
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "noValue"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 37
+      },
+      "id": 2,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "10.0.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage",
+          "format": "time_series",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "heating_power"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Spinta riscaldamento",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "instance": true,
+              "job": true,
+              "unit": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "Bad": "",
+              "Badezimmer": "",
+              "Time": "",
+              "instance": "",
+              "job": ""
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 18,
+        "x": 0,
+        "y": 43
+      },
+      "id": 34,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{unit=\"celsius\"}",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Temperature: Tutte le zone",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "instance": true,
+              "job": true,
+              "unit": false
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "max": 30,
+          "min": 15,
+          "noValue": "Off",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              },
+              {
+                "color": "blue",
+                "value": 18
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "orange",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 27.6
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 43
+      },
+      "id": 46,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "10.0.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage",
+          "format": "time_series",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "celsius"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Temperature",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns",
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "instance": true,
+              "job": true,
+              "unit": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "Bad": "",
+              "Time": "",
+              "instance": "",
+              "job": "awefe"
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 18,
+        "x": 0,
+        "y": 49
+      },
+      "id": 35,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_sensor_temperature_value{unit=\"celsius\"}",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Umidità: Tutte le zone",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": false,
+              "instance": true,
+              "job": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange"
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "orange",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 49
+      },
+      "id": 4,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "10.0.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "expr": "tado_activity_heating_power_percentage",
+          "format": "time_series",
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Umidità",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "zonename"
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "instance": true,
+              "job": true,
+              "unit": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "Bad": "",
+              "Time": "",
+              "instance": "",
+              "job": "awefe"
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 55
+      },
+      "id": 47,
+      "panels": [],
+      "title": "Dispositivi",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": true,
+            "inspect": false,
+            "minWidth": 80
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Liv Batteria"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "NORMAL": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Normale"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Connesso"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bool"
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "false": {
+                        "color": "red",
+                        "index": 1,
+                        "text": "no"
+                      },
+                      "true": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "si"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Montaggio"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "CALIBRATED": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Calibrato"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tipo Zona"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "AIR_CONDITIONING": {
+                        "color": "light-blue",
+                        "index": 1,
+                        "text": "Condizionatori"
+                      },
+                      "HEATING": {
+                        "color": "super-light-red",
+                        "index": 0,
+                        "text": "Riscaldamento"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 18,
+        "x": 0,
+        "y": 56
+      },
+      "id": 48,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "Lista dispositivi",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "shortSerialNo"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "serialNo::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "zonename::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "zonetype::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "dAm2KTADO_Zones",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "Dettagli dispositivi",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "batteryState"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "shortSerialNo"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "deviceType"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "connectionState"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "currentFwVersion"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "mountingState"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Lista dispositivi TADO",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "shortSerialNo",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "serialNo": true
+            },
+            "indexByName": {
+              "Time": 0,
+              "batteryState": 5,
+              "connectionState": 7,
+              "currentFwVersion": 8,
+              "deviceType": 6,
+              "mountingState": 9,
+              "serialNo": 1,
+              "shortSerialNo": 4,
+              "zonename": 2,
+              "zonetype": 3
+            },
+            "renameByName": {
+              "batteryState": "Liv Batteria",
+              "connectionState": "Connesso",
+              "currentFwVersion": "Firmware",
+              "deviceType": "Tipo",
+              "distinct": "Seriale",
+              "mountingState": "Montaggio",
+              "serialNo": "Seriale lungo",
+              "shortSerialNo": "Seriale",
+              "zonename": "Zona",
+              "zonetype": "Tipo Zona"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Zona"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [
+    "tado",
+    "casa"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "Pranzo",
+          "value": "Pranzo"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "d658de4b-a5bd-4dc6-ae87-17f0e07a552c"
+        },
+        "definition": "SHOW TAG VALUES from dAm2KTADO_Zones with key=\"zonename\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Zones",
+        "multi": false,
+        "name": "zone",
+        "options": [],
+        "query": "SHOW TAG VALUES from dAm2KTADO_Zones with key=\"zonename\"",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "tado° Dashboard",
+  "uid": "umzs8YZRk",
+  "version": 81,
+  "weekStart": ""
+}

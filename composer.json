@@ -1,0 +1,22 @@
+{
+    "name": "dam2k/telegraf-dam2ktado",
+    "description": "Unofficial tado (tm) API exporter (telegraf execd input plugin) written in PHP",
+    "version": "0.9",
+    "minimum-stability": "stable",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dino Ciuffetti",
+            "role": "Developer",
+            "email": "dino@tuxweb.it",
+            "homepage": "https://dino.ciuffetti.info/"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "dAm2K\\telegrafdam2ktado\\": ["./"] }
+    },
+    "require": {
+        "dam2k/tadoapi": "^0.9.0"
+    }
+}
