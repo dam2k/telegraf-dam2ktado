@@ -53,7 +53,7 @@ foreach(stdin_stream() as $line)
         //fprintf(STDERR, "%s\n", "New metric...");
         fprintf(STDOUT, "%s\n", json_encode($o));
     } catch (\Exception $e) {
-        fprintf(STDOUT, "Error with tado api call: %s\n", $e->getMessage());
+        fprintf(STDERR, "Error with tado api call: %s\n", $e->getMessage());
     }
 }
 
