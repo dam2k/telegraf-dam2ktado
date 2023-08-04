@@ -1,7 +1,7 @@
 # telegraf-dam2ktado
 Unofficial tado (tm) API exporter (telegraf execd input plugin) written in PHP.
 
-Designed from scratch for myself, this telegraf execd input plugin makes use of [dam2k/tadoapi](https://github.com/dam2k/tadoapi) to get sendor and devices data from Tado network (Internet). Driven by telegraf STDIN signaling, exports a single json to be read by telegraf json2 internal parser to aggregate the tado metrics.
+Designed from scratch for myself, this telegraf execd input plugin makes use of [dam2k/tadoapi](https://github.com/dam2k/tadoapi) to get sensors and devices data from Tado network (Internet). Driven by telegraf STDIN signaling, exports a single json to be read by telegraf json2 internal parser to aggregate the tado metrics.
 # Installation
 The software requires that you first install PHP cli (8.2 is much better) and composer. It also needs a valid running instance of telegraf.
 You can now install the telegraf-dam2ktado plugin.
