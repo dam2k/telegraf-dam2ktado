@@ -60,3 +60,9 @@ The exported metrics collected by telegraf thanks to this plugin are defined bel
 - **connectionState**: the device connection state to the tado bridge. Can be true or false
 - **batteryState**: the device battery level (NORMAL, LOW or n/a for devices without batteries)
 - **mountingState**: the mounting state. CALIBRATED for devices that require mounting (like valves) or n/a if unnecessary
+
+# Grafana screenshots
+![Schermata del 2023-08-04 23-21-33](https://github.com/dam2k/telegraf-dam2ktado/assets/1271237/a92facc6-c701-45b0-a7ee-cd7367d52ba0)
+![Schermata del 2023-08-04 23-21-22](https://github.com/dam2k/telegraf-dam2ktado/assets/1271237/afa1e56b-7218-4701-9511-30d358830a66)
+![Schermata del 2023-08-04 23-21-14](https://github.com/dam2k/telegraf-dam2ktado/assets/1271237/cdcebf1e-31f3-4e3c-8c6d-7e83f19ed4b9)
+![Schermata del 2023-08-04 23-20-51](https://github.com/dam2k/telegraf-dam2ktado/assets/1271237/6d25b42f-0acb-46a3-b004-97243b21e8d8)
