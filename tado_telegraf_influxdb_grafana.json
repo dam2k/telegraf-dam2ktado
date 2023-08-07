@@ -338,7 +338,7 @@
         "h": 2,
         "w": 4,
         "x": 0,
-        "y": 19
+        "y": 10
       },
       "id": 20,
       "options": {
@@ -407,7 +407,7 @@
         "h": 2,
         "w": 6,
         "x": 4,
-        "y": 19
+        "y": 10
       },
       "id": 8,
       "interval": "",
@@ -513,7 +513,7 @@
         "h": 3,
         "w": 5,
         "x": 10,
-        "y": 19
+        "y": 10
       },
       "id": 9,
       "interval": "",
@@ -580,7 +580,7 @@
         "h": 2,
         "w": 3,
         "x": 15,
-        "y": 19
+        "y": 10
       },
       "id": 21,
       "options": {
@@ -641,7 +641,7 @@
         "h": 2,
         "w": 6,
         "x": 18,
-        "y": 19
+        "y": 10
       },
       "id": 22,
       "interval": "",
@@ -761,7 +761,7 @@
         "h": 9,
         "w": 8,
         "x": 0,
-        "y": 21
+        "y": 12
       },
       "id": 15,
       "options": {
@@ -880,7 +880,7 @@
         "h": 3,
         "w": 2,
         "x": 8,
-        "y": 21
+        "y": 12
       },
       "id": 13,
       "interval": "",
@@ -1001,7 +1001,7 @@
         "h": 9,
         "w": 7,
         "x": 15,
-        "y": 21
+        "y": 12
       },
       "id": 23,
       "options": {
@@ -1113,7 +1113,7 @@
         "h": 3,
         "w": 2,
         "x": 22,
-        "y": 21
+        "y": 12
       },
       "id": 30,
       "interval": "",
@@ -1217,7 +1217,7 @@
         "h": 2,
         "w": 5,
         "x": 10,
-        "y": 22
+        "y": 13
       },
       "id": 43,
       "interval": "",
@@ -1289,8 +1289,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "light-green",
@@ -1318,7 +1317,7 @@
         "h": 3,
         "w": 2,
         "x": 8,
-        "y": 24
+        "y": 15
       },
       "id": 12,
       "interval": "",
@@ -1404,8 +1403,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "blue",
@@ -1433,7 +1431,7 @@
         "h": 3,
         "w": 5,
         "x": 10,
-        "y": 24
+        "y": 15
       },
       "id": 11,
       "interval": "",
@@ -1500,8 +1498,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange",
-                "value": null
+                "color": "orange"
               },
               {
                 "color": "green",
@@ -1521,7 +1518,7 @@
         "h": 3,
         "w": 2,
         "x": 22,
-        "y": 24
+        "y": 15
       },
       "id": 24,
       "interval": "",
@@ -1594,8 +1591,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "light-green",
@@ -1623,7 +1619,7 @@
         "h": 3,
         "w": 2,
         "x": 8,
-        "y": 27
+        "y": 18
       },
       "id": 14,
       "interval": "",
@@ -1698,8 +1694,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               },
               {
                 "color": "super-light-yellow",
@@ -1731,7 +1726,7 @@
         "h": 3,
         "w": 5,
         "x": 10,
-        "y": 27
+        "y": 18
       },
       "id": 42,
       "interval": "",
@@ -1799,8 +1794,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange",
-                "value": null
+                "color": "orange"
               },
               {
                 "color": "green",
@@ -1820,7 +1814,7 @@
         "h": 3,
         "w": 2,
         "x": 22,
-        "y": 27
+        "y": 18
       },
       "id": 25,
       "interval": "",
@@ -1889,7 +1883,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 21
       },
       "id": 39,
       "panels": [],
@@ -1954,8 +1948,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -1967,7 +1960,7 @@
         "h": 6,
         "w": 18,
         "x": 0,
-        "y": 31
+        "y": 22
       },
       "id": 45,
       "options": {
@@ -2072,8 +2065,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "blue",
@@ -2101,7 +2093,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 31
+        "y": 22
       },
       "id": 44,
       "options": {
@@ -2239,8 +2231,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2256,7 +2247,7 @@
         "h": 6,
         "w": 18,
         "x": 0,
-        "y": 37
+        "y": 28
       },
       "id": 40,
       "options": {
@@ -2369,8 +2360,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "grey",
-                "value": null
+                "color": "grey"
               },
               {
                 "color": "green",
@@ -2398,7 +2388,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 37
+        "y": 28
       },
       "id": 2,
       "options": {
@@ -2534,8 +2524,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2551,7 +2540,7 @@
         "h": 6,
         "w": 18,
         "x": 0,
-        "y": 43
+        "y": 34
       },
       "id": 34,
       "options": {
@@ -2652,8 +2641,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "blue",
@@ -2681,7 +2669,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 43
+        "y": 34
       },
       "id": 46,
       "options": {
@@ -2818,8 +2806,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2835,7 +2822,7 @@
         "h": 6,
         "w": 18,
         "x": 0,
-        "y": 49
+        "y": 40
       },
       "id": 35,
       "options": {
@@ -2935,8 +2922,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange",
-                "value": null
+                "color": "orange"
               },
               {
                 "color": "green",
@@ -2956,7 +2942,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 49
+        "y": 40
       },
       "id": 4,
       "options": {
@@ -3051,7 +3037,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 55
+        "y": 46
       },
       "id": 47,
       "panels": [],
@@ -3083,8 +3069,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -3102,6 +3087,11 @@
                 "value": [
                   {
                     "options": {
+                      "LOW": {
+                        "color": "red",
+                        "index": 1,
+                        "text": "Basso"
+                      },
                       "NORMAL": {
                         "color": "green",
                         "index": 0,
@@ -3224,7 +3214,7 @@
         "h": 10,
         "w": 18,
         "x": 0,
-        "y": 56
+        "y": 47
       },
       "id": 48,
       "options": {
@@ -3468,6 +3458,6 @@
   "timezone": "browser",
   "title": "tado° Dashboard",
   "uid": "umzs8YZRk",
-  "version": 81,
+  "version": 82,
   "weekStart": ""
 }
