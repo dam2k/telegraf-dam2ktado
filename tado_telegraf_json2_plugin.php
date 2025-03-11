@@ -31,15 +31,10 @@ function stdin_stream()
 
 // NOTE: you need to setup your environment here!
 $tadoconf=[
-    // Get your personale Tado (tm) client ID and secret from https://my.tado.com/webapp/env.js
-    'tado.clientId' => 'tado-web-app',
-    'tado.clientSecret' => 'taG9tXxzGrIFWixUT1nZnzIjlovENGe0KNAB51ADKZQjSlNBvhs0xbT6tC4jIUaC',
-    'tado.username' => 'yourtadoemail@email.com',
-    'tado.password' => 'yourtadopassporcoziochenotiziamacomelhamessadentroguarda',
-    // your home's ID.
-    'tado.homeid' => '36389',
-    // we put access token here. When the AT expires a new one get collected and saved here
-    'statefile' => '/tmp/dam2ktado_aeSh8aem.txt'
+        // Tado client ID - https://support.tado.com/en/articles/8565472-how-do-i-authenticate-to-access-the-rest-api
+        'tado.clientId' => '1ba10063-6b4c-4d11-ad99-587f4491cc12',
+        'tado.homeid' => '36389', // get home id from... TODO: write how to find Tado homeId
+        'statefile' => '/var/tmp/dam2ktado_aeSh8aem.txt' // we put access token here. When the AT expires a new one get collected and saved here
 ];
 
 $tado=new TadoApi($tadoconf);

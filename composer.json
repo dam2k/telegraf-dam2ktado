@@ -17,6 +17,6 @@
         "psr-4": { "dAm2K\\telegrafdam2ktado\\": ["./"] }
     },
     "require": {
-        "dam2k/tadoapi": "^0.9.0"
+        "dam2k/tadoapi": "^1.1.6"
     }
 }
